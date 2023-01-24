@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, MutableRefObject } from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { useRect } from "@reach/rect";
@@ -26,7 +26,7 @@ const headerVariants: Variants = {
 
 export const Header = () => {
   const [headerHeight, setHeaderHeight] = useState<number | null>(null);
-  const headerRef = useRef();
+  const headerRef = useRef(null);
   const headerRect = useRect(headerRef);
 
   useEffect(() => {

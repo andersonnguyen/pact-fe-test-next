@@ -1,4 +1,9 @@
-export const links = [
+export interface LinkDataProp {
+  title: string;
+  path: string;
+}
+
+export const links: LinkDataProp[] = [
   {
     title: "Our Values",
     path: "/our-values",

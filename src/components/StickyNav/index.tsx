@@ -3,6 +3,7 @@ import { motion, Variants } from "framer-motion";
 import Logo from "@/svg/logo.svg";
 import { useState, useEffect } from "react";
 import styles from "./index.module.scss";
+import { LinkDataProp } from "@/components/Header/links";
 
 const stickyNavVariants: Variants = {
   hide: { y: "-100%", opacity: 0 },
@@ -13,14 +14,14 @@ export const StickyNav = ({
   items,
   headerHeight,
 }: {
-  items: [];
-  headerHeight: number;
+  items: LinkDataProp[];
+  headerHeight: number | null;
 }) => {
   const [isSticky, setIsSticky] = useState(false);
 
   // set the sticky nav to show when it scrolls pass the header
   const triggerSticky = () => {
-    if (window !== undefined) {
+    if (window !== undefined && headerHeight) {
       let windowHeight = window.scrollY;
       windowHeight > headerHeight ? setIsSticky(true) : setIsSticky(false);
     }
