@@ -6,6 +6,7 @@
   color: var(--light-fg);
   grid-column: 1 / -1;
   margin: 0 0 rem-calc(60);
+  overflow: hidden;
 
   strong,
   em {

@@ -58,7 +58,7 @@ const CirclePart = ({
         cy="-27.5"
         r="306.5"
         stroke={color}
-        stroke-width="103"
+        strokeWidth="103"
         variants={variants}
       />
     </motion.svg>
