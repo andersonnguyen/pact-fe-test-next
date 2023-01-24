@@ -1,0 +1,26 @@
+@use "sass:math";
+@use "./variables.scss" as *;
+
+$breakpoints: (
+  "tablet": 768,
+  "laptop": 992,
+  "desktop": 1200,
+);
+
+@mixin tablet {
+  @media (min-width: #{math.div(map-get($breakpoints, "tablet"), $rem-base) * 1rem}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{math.div(map-get($breakpoints, "laptop"), $rem-base) * 1rem}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{math.div(map-get($breakpoints, "desktop"), $rem-base) * 1rem}) {
+    @content;
+  }
+}

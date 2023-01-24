@@ -1,0 +1,56 @@
+@use "./variables.scss" as *;
+@use "./breakpoints.scss" as *;
+
+/**
+ * Fluid Type
+ * ===
+ * Useful on headings/large text.
+ * Min/max values should be in pixels.
+ */
+
+:root {
+  --rem-base: #{$rem-base};
+  --fluid-min-width: 320;
+  --fluid-max-width: #{map-get($breakpoints, "desktop")};
+
+  --fluid-screen: 100vw;
+  // based on: https://www.madebymike.com.au/writing/fluid-type-calc-examples/
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / var(--rem-base) * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+}
+
+// cap the max
+@include desktop {
+  :root {
+    --fluid-screen: calc((var(--fluid-max-width) / var(--rem-base)) * 1rem);
+  }
+}
+
+:root {
+  --heading-1-min: 32;
+  --heading-1-max: 64;
+  --heading-1-size: calc(
+    ((var(--heading-1-min) / var(--rem-base)) * 1rem) +
+      (var(--heading-1-max) - var(--heading-1-min)) * var(--fluid-bp)
+  );
+  --heading-1-line-height: 1;
+  --heading-1-letter-spacing: ;
+
+  --heading-2-min: 28;
+  --heading-2-max: 48;
+  --heading-2-size: calc(
+    ((var(--heading-2-min) / var(--rem-base)) * 1rem) +
+      (var(--heading-2-max) - var(--heading-2-min)) * var(--fluid-bp)
+  );
+  --heading-2-line-height: calc(56 / 48);
+
+  --heading-3-min: 24;
+  --heading-3-max: 32;
+  --heading-3-size: calc(
+    ((var(--heading-3-min) / var(--rem-base)) * 1rem) +
+      (var(--heading-3-max) - var(--heading-3-min)) * var(--fluid-bp)
+  );
+  --heading-3-line-height: calc(40 / 32);
+}

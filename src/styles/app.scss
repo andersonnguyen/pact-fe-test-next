@@ -1,0 +1,68 @@
+// Set up the global styles.
+@use "./colors.scss";
+@use "./fluid-type.scss";
+@use "./common.scss" as *;
+@use "./base.scss";
+
+// Set global defaults
+:root {
+  --gutter-x: #{rem-calc(24)};
+  --spacing-y: var(--gutter-x);
+
+  --max-width: #{rem-calc(1232)};
+  --max-width-padding-x: var(--gutter-x);
+
+  --rounded-radius: 32px;
+
+  --inter-letter-spacing: -0.04em;
+
+  --overline-size: #{rem-calc(14)};
+  --overline-line-height: calc(16 / 14);
+
+  --body-size: #{rem-calc(20)};
+  --body-line-height: calc(28 / 20);
+
+  --subtitle-size: #{rem-calc(14)};
+  --subtitle-line-height: calc(20 / 14);
+
+  @include tablet {
+    --spacing-y: #{rem-calc(46)};
+  }
+
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--light-green);
+  font-family: var(--font-inter);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  letter-spacing: var(--inter-letter-spacing);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  @include wrapper;
+
+  > * {
+    grid-column: 2;
+  }
+}
+
+a {
+  transition-timing-function: var(--ease-out-expo);
+  transition-duration: 300ms;
+}

@@ -1,0 +1,24 @@
+@use "@/styles/common.scss" as *;
+
+.Button {
+  --padding-x: 24px;
+  @include overline;
+  display: block;
+  padding: 11px var(--padding-x) 13px;
+  border-radius: var(--rounded-radius);
+  background: var(--primary-bg);
+  color: var(--primary-fg);
+
+  &:hover {
+    background: var(--primary-bg-hover);
+  }
+
+  &:where(:not(:first-of-type)) {
+    background: var(--secondary-bg);
+    color: var(--secondary-fg);
+
+    &:hover {
+      background: var(--secondary-bg-hover);
+    }
+  }
+}

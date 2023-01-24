@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+pnpm-lock.yaml
+
+# testing
+/coverage
+
+# production
+/build
+
+# next.js
+/.next/
+/out/
+
+# typescript
+next-env.d.ts

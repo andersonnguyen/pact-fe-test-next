@@ -1,0 +1,25 @@
+@use "@/styles/common.scss" as *;
+
+.Card {
+  padding: rem-calc(40);
+  border-radius: var(--rounded-radius);
+
+  &:nth-child(odd) {
+    background: var(--primary-bg);
+    color: var(--primary-fg);
+  }
+
+  &:nth-child(even) {
+    background: var(--secondary-bg);
+    color: var(--secondary-fg);
+  }
+}
+
+.Overline {
+  opacity: 0.6;
+  margin-bottom: rem-calc(24);
+}
+
+.Title {
+  @include h3;
+}

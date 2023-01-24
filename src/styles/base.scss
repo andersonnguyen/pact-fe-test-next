@@ -1,0 +1,50 @@
+/**
+ * Personal resets.
+ */
+
+// Remove default margins so we can be deliberate with them.
+* {
+  margin: 0;
+}
+
+// Unstyle headings so any styles set are deliberate.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: unset;
+  font-weight: unset;
+}
+
+// Allow percentage-based heights.
+html,
+body {
+  height: 100%;
+}
+
+// Set media elements to block level.
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+}
+
+// Constrain image/video to parent.
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Unstyle links.
+a {
+  color: inherit;
+  text-decoration: none;
+}

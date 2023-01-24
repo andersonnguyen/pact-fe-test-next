@@ -1,0 +1,111 @@
+@use "@/styles/common.scss" as *;
+
+.StickyContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  @include wrapper;
+  padding: rem-calc(24) 0;
+  z-index: 20;
+
+  > * {
+    grid-column: 2;
+  }
+}
+
+.Wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.StickyNav {
+  --text-color: var(--dark-fg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-color);
+  border-radius: var(--rounded-radius);
+  background: var(--white);
+  padding: 8px;
+  width: 100%;
+
+  @include laptop {
+    width: auto;
+  }
+}
+
+.Left {
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+
+.HomeLink {
+  color: var(--green);
+
+  &:hover {
+    color: hsla(var(--green-h), var(--green-s), var(--green-l), 0.8);
+  }
+}
+
+.NavToggler {
+  display: grid;
+  row-gap: 5px;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: 0;
+  color: inherit;
+  align-items: center;
+  padding: 14px 4px;
+  margin-right: rem-calc(12);
+
+  &::before,
+  &::after {
+    content: "";
+  }
+
+  &::before,
+  &::after,
+  > span {
+    display: block;
+    height: 2px;
+    background: currentColor;
+  }
+
+  @include laptop {
+    display: none;
+  }
+}
+
+.NavList {
+  --spacing-x: 28;
+  @include overline;
+  display: none;
+
+  @include laptop {
+    display: flex;
+    list-style: none;
+    padding: 0 calc((var(--spacing-x) / var(--rem-base)) * 1rem);
+  }
+}
+
+.NavItem {
+  display: block;
+
+  &:where(:not(:first-child)) {
+    margin-left: #{rem-calc(var(--spacing-x))};
+  }
+}
+
+.NavLink {
+  &:hover {
+    color: var(--light-fg-hover);
+  }
+}
+
+.NavButton {
+  composes: Button from "@/components/Button/index.module.scss";
+}

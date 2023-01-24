@@ -1,0 +1,26 @@
+@mixin h1 {
+  font-size: var(--heading-1-size);
+  line-height: var(--heading-1-line-height);
+}
+
+@mixin h2 {
+  font-size: var(--heading-2-size);
+}
+
+@mixin h3 {
+  font-size: var(--heading-3-size);
+  line-height: var(--heading-3-line-height);
+}
+
+@mixin overline {
+  font-family: var(--font-ibm-plex-mono);
+  font-size: var(--overline-size);
+  line-height: var(--overline-line-height);
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+@mixin subtitle {
+  font-size: var(--subtitle-size);
+  line-height: var(--subtitle-line-height);
+}

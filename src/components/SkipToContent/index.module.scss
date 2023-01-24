@@ -1,0 +1,25 @@
+@use "@/styles/common.scss" as *;
+
+.SkipToContent {
+  @include wrapper;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  width: 100%;
+  padding: #{rem-calc(20)} var(--max-width-padding-x);
+  background-color: var(--primary-bg);
+  color: var(--primary-fg);
+  font-family: var(--font-ibm-plex-mono);
+  font-size: var(--overline-size);
+  line-height: var(--overline-line-height);
+  z-index: 10;
+
+  &:focus {
+    transform: translateY(0);
+  }
+
+  > * {
+    grid-column: 2;
+  }
+}

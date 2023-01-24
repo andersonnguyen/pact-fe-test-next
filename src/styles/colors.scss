@@ -1,0 +1,60 @@
+:root {
+  --lighten-l: 15%;
+  --darken-l: -15%;
+
+  --yellow: #dbf617;
+  --yellow-h: 67;
+  --yellow-s: 93%;
+  --yellow-l: 53%;
+
+  --white: #fff;
+  --white-h: 0;
+  --white-s: 0%;
+  --white-l: 100%;
+
+  --dark-green: #30493c;
+  --dark-green-h: 149;
+  --dark-green-s: 21%;
+  --dark-green-l: 24%;
+
+  --green: #3fb76f;
+  --green-h: 144;
+  --green-s: 49%;
+  --green-l: 48%;
+
+  --light-green: #f0f5f2;
+  --light-green-h: 144;
+  --light-green-s: 21%;
+  --light-green-l: 95%;
+
+  // Light/Dark Swatches
+  --light-fg: var(--white);
+  --light-fg-hover: hsl(
+    var(--white-h),
+    var(--white-s),
+    calc(var(--white-l) + var(--darken-l))
+  );
+  --dark-fg: var(--dark-green);
+  --dark-fg-hover: hsl(
+    var(--dark-green-h),
+    var(--dark-green-s),
+    calc(var(--dark-green-l) + var(--lighten-l))
+  );
+
+  // Combos
+  --primary-bg: hsl(var(--yellow-h), var(--yellow-s), var(--yellow-l));
+  --primary-bg-hover: hsl(
+    var(--yellow-h),
+    var(--yellow-s),
+    calc(var(--yellow-l) + var(--darken-l))
+  );
+  --primary-fg: var(--dark-green);
+
+  --secondary-bg: hsl(var(--green-h), var(--green-s), var(--green-l));
+  --secondary-bg-hover: hsl(
+    var(--green-h),
+    var(--green-s),
+    calc(var(--green-l) + var(--lighten-l))
+  );
+  --secondary-fg: var(--white);
+}

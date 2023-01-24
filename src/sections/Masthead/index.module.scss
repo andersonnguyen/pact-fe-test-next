@@ -1,0 +1,100 @@
+@use "@/styles/common.scss" as *;
+
+.Masthead {
+  @include wrapper;
+  position: relative;
+  color: var(--light-fg);
+  grid-column: 1 / -1;
+  margin: 0 0 rem-calc(60);
+
+  strong,
+  em {
+    font-style: normal;
+    font-weight: normal;
+    color: var(--yellow);
+  }
+
+  > * {
+    grid-column: 2;
+  }
+
+  &.HasImage {
+    &::before {
+      content: "";
+      background: var(--dark-green);
+      grid-column: 1 / -1;
+      grid-row: 1 / 3;
+      z-index: -1;
+    }
+  }
+
+  @include laptop {
+    margin-bottom: rem-calc(120);
+  }
+}
+
+.MastheadContent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: var(--spacing-y) 0;
+  column-gap: var(--gutter-x);
+  row-gap: var(--spacing-y);
+  grid-row: 1 / 2;
+
+  @include tablet {
+    --spacing-y: #{rem-calc(56)};
+    padding: #{rem-calc(38)} 0 var(--spacing-y);
+  }
+}
+
+.Title {
+  @include h1;
+  grid-row: 1;
+  grid-column: 1/-1;
+
+  @include tablet {
+    grid-column: 1/10;
+  }
+}
+
+.List {
+  display: grid;
+  grid-template-columns: inherit;
+  gap: inherit;
+  list-style: none;
+  grid-column: 1/-1;
+  padding: 0;
+}
+
+.ListItem {
+  display: grid;
+  grid-template-columns: 1rem auto;
+  column-gap: rem-calc(12);
+  grid-column: span 6;
+  align-items: flex-start;
+  font-size: var(--subtitle-size);
+  line-height: var(--subtitle-line-height);
+
+  @include laptop {
+    grid-column: span 3;
+  }
+}
+
+.ListItemIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-top: rem-calc(3);
+}
+
+.ListItemText {
+  display: block;
+  opacity: 0.6;
+}
+
+.FeaturedImage {
+  grid-row: 2 / 4;
+
+  img {
+    aspect-ratio: 1232 / 659;
+  }
+}

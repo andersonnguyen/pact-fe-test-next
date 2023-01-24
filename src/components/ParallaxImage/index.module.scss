@@ -1,0 +1,49 @@
+@use "@/styles/common.scss" as *;
+
+.Wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.Image {
+  aspect-ratio: 1232 / 659;
+  object-fit: cover;
+  border-radius: var(--rounded-radius);
+}
+
+.CirclePart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 712/328;
+  overflow: hidden;
+}
+
+.CircleLeft,
+.CircleRight {
+  position: absolute;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: percentage(328/712);
+  }
+}
+
+.CircleRight {
+  top: min(calc((40 / 1232) * 100vw), #{rem-calc(40)});
+  right: -20%;
+  width: min(calc((712 / 1232) * 100vw), #{rem-calc(712)});
+}
+
+.CircleLeft {
+  bottom: min(calc((66 / 1232) * 100vw), #{rem-calc(66)});
+  left: -20%;
+  width: min(calc((432 / 1232) * 100vw), #{rem-calc(432)});
+
+  .CirclePart {
+    transform: scaleX(-1);
+  }
+}

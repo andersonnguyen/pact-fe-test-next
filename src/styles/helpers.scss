@@ -1,0 +1,30 @@
+@use "./breakpoints.scss" as *;
+
+/**
+ * rem-calc mix-in
+ * ===
+ * To save us from having to write the `calc()` function over and over again.
+ * Returns calc value in case we want to change the --rem-base variable.
+ */
+@function rem-calc($value) {
+  @return calc((#{$value} / var(--rem-base)) * 1rem);
+}
+
+/**
+ * wrapper mix-in
+ * ===
+ * Turns element into a CSS grid with global max-width.
+ * Useful for reinstating the wrapper for full-bleed sections.
+ */
+@mixin wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr min(var(--max-width), calc(100% - (var(--gutter-x) * 2)))
+    1fr;
+
+  @include desktop {
+    grid-template-columns:
+      1fr min(var(--max-width), calc(100% - (#{rem-calc(104)} * 2)))
+      1fr;
+  }
+}

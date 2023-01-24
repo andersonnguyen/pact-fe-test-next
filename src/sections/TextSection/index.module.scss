@@ -1,0 +1,36 @@
+@use "@/styles/common.scss" as *;
+
+.TextSection {
+  display: grid;
+  gap: var(--gutter-x);
+  margin: 0 0 var(--spacing-y);
+
+  @include tablet {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.Title {
+  @include h2;
+  margin-bottom: rem-calc(20);
+
+  @include laptop {
+    margin-bottom: rem-calc(40);
+  }
+}
+
+.Overline {
+  opacity: 0.5;
+}
+
+.Left {
+  @include tablet {
+    grid-column: 1 / 5;
+  }
+}
+
+.Right {
+  @include tablet {
+    grid-column: 7 / -1;
+  }
+}
